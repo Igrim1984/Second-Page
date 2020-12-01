@@ -1,0 +1,299 @@
+/* ----------------------- Basic Styles ------------------------------ */
+
+:root {
+    --primary: rgb(156, 203, 63);
+    --secoundary: rgba(229, 239, 245, 0.95);
+}
+
+body {
+    background-image: url(img/Mleko.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    margin-bottom: 30vh;
+}
+
+.container{
+    margin: 0 3vw auto; 
+}
+
+/* --------------------------- Grid ---------------------------------*/
+.grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: minmax(100px, auto);
+    gap: 10px;
+}
+
+.grid-area {
+    grid-template-areas:
+        "header header header header header header"
+        "nav nav nav nav nav nav"
+        "slider slider slider slider slider slider"
+        "main main main main main main"
+        "aside aside aside aside aside aside"
+        "section section section section section section"
+        "footer footer footer footer footer footer"
+    ;
+}
+
+/* --------------------------- Other Styles ------------------------------ */
+
+#header {
+    grid-area: header;
+    grid: 1 1 100px;
+    /* grid-column: 1/13;
+    grid-row: 1/2; */
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 25vh;
+}
+
+#header h1 {
+    font-size: 6rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+    transition-duration: 1s;
+        
+}
+
+
+
+#nav {
+    grid-area: nav;
+    grid: 1 1 100px;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 50%;
+    /* grid-column: 1/13;
+    grid-row: 2/3; */
+}
+
+nav ul {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 0;
+}
+
+nav li {
+    font-weight: bold;
+    background-color: var(--secoundary);
+    flex-grow: 1;
+    list-style-type: none;
+    font-size: 1.4rem;
+    border: double 10px purple;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 30px;
+    box-shadow: 6px 12px 18px rgba(0, 0, 0, 0.6);
+    text-transform: uppercase;
+    transition-duration: 0.4s;
+}
+
+
+
+nav a {
+    text-decoration: none;
+}
+
+.slider{
+    grid-area: slider;
+    grid: 1 1 100px;
+}
+
+#main {
+    grid-area: main;
+    grid: 1 1 100px;
+    /* grid-column: 1/13;
+    grid-row: 3/4; */
+}
+
+main article {
+    background-color: var(--secoundary);
+    grid-column: span 12;
+    min-height: 100px;
+    border: 18px double var(--primary);
+    border-radius: 20px;
+    box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    position: relative;
+    height: 340px;
+    transition-duration: 1s;
+}
+
+
+
+main p {
+    position: absolute;
+    bottom: 3%;
+    left: 15%;
+    right: 15%;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+img {
+    display: block;
+    width: auto;
+    width: 90%;
+    height: 300px;
+    /* margin-bottom: 10px; */
+    padding: 10px;
+    margin: auto;
+}
+
+#aside {
+    background-color: var(--secoundary);
+    grid-area: aside;
+    grid: 1 1 100px;
+    border: 6px solid var(--primary);
+    border-radius: 10px;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    /* grid-column: 1/13;
+    grid-row: 4/5; */
+}
+
+#section {
+    background-color: var(--secoundary);
+    grid-area: section;
+    grid: 1 1 100px;
+    border: 6px solid var(--primary);
+    border-radius: 10px;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    /* grid-column: 1/13;
+    grid-row: 5/6; */
+}
+
+#footer {
+    background-color: var(--secoundary);
+    grid-area: footer;
+    grid: 1 1 100px;
+    border: 6px solid var(--primary);
+    border-radius: 10px;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    /* grid-column: 1/13;
+    grid-row: 6/7; */
+}
+
+
+/* --------------Media Querry--------------------------- */
+
+@media screen and (min-width: 640px) {
+    .grid-area {
+        grid-template-areas:
+            "header header header header header header"
+            "nav nav nav nav nav nav"
+            "slider slider slider slider slider slider"
+            "main main main main aside aside"
+            "main main main main aside aside"
+            "section section section section aside aside"
+            "footer footer footer footer footer footer"
+        ;
+    }
+
+    
+    body * {
+        font-size: 1.1rem;
+       }
+
+    #header h1:hover{
+
+        text-shadow: 2px 4px 6px black;
+        letter-spacing: 8px;
+        cursor: pointer;
+    }
+
+    nav li:hover{
+        cursor: pointer;
+        box-shadow: 4px 8px 12px black;
+        border-color: blue;
+    }
+
+    nav li:hover > a{
+        text-shadow: 1px 2px 3px blue;
+    }    
+
+    main article:hover{
+        cursor: pointer;
+        background-color: rgba(229, 239, 245, 0.1);
+        padding: 10px 30px;
+        border-color: lightskyblue;
+    }
+
+}
+
+@media screen and (min-width: 1100px) {
+    .grid-area {
+        grid-template-areas:
+            "header header header header header header"
+            "nav nav nav nav nav nav"
+            "slider slider slider slider slider slider"
+            "main main main main main aside"
+            "main main main main main aside"
+            "section section section section section aside"
+            "footer footer footer footer footer footer"
+        ;
+    }
+
+    body * {
+        font-size: 1.2rem;
+    }
+
+        
+    #main > article:nth-child(odd) {
+        grid-column: 1/4;
+    }
+
+    #main > article:nth-child(even) {
+        grid-column: 4/7;
+    }
+
+    img {
+        height: 350px;
+    }
+
+    main article {
+        height: auto;
+    }
+}
+
+
+@media screen and (min-width: 1600px) {
+    .grid-area {
+
+        grid-template-areas:
+            "header header header header header header"
+            "nav slider slider slider slider aside"
+            "section main main main main aside"
+            "section main main main main aside"
+            "section footer footer footer footer aside"
+        ;
+    }
+
+    body * {
+        font-size: 1.4rem;
+    }
+
+
+
+    main p {
+        position: absolute;
+        bottom: 5%;
+        left: 10%;
+        right: 10%;
+        color: black;
+        font-weight: bold;
+        font-size: 1.4rem;
+        padding: 10px;
+    }
+
+    img {
+        height: 400px;
+    }
+}
